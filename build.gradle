@@ -1,14 +1,35 @@
 plugins {
-    id 'java'
+	id 'java'
+	id "com.diffplug.spotless" version "5.14.0"
+	id  'groovy'
 }
 
-group 'org.example'
+group 'com.ui.test'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+	mavenCentral()
+}
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+spotless {
+
+	java {
+		removeUnusedImports()
+		importOrder()
+		googleJavaFormat()
+	}
+	groovyGradle {
+		target '*.gradle' // default target of groovyGradle
+		greclipse()
+	}
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+	implementation group: 'com.microsoft.playwright', name: 'playwright', version: '1.12.1'
 }
+
+
+compileJava.dependsOn spotlessApply
