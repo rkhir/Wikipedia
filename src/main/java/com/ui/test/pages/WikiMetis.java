@@ -18,10 +18,6 @@ public class WikiMetis extends BasePage {
   }
 
   public String nikePopup() throws InterruptedException {
-    // page.pause();
-    // document.querySelector('body > div.mwe-popups-type-page > div.mwe-popups-container > a
-    // >p').textContent;
-
     AtomicReference<String> test = new AtomicReference<>("");
     page.waitForResponse(
         response ->
@@ -29,36 +25,18 @@ public class WikiMetis extends BasePage {
                     .equals(response.url())
                 && response.status() == 200,
         () -> {
-          ElementHandle nikeLink =
-              this.page.querySelector(
-                  "//*[@id=\"mw-content-text\"]/div[1]/table[4]/tbody/tr[4]/td/div/ul/li[77]");
-          nikeLink.hover(new ElementHandle.HoverOptions().setForce(true));
-          nikeLink.focus();
-          page.waitForTimeout(1000);
+          ElementHandle nikePopup =
+             page.querySelector(
+                 "#mw-content-text > div.mw-parser-output > table:nth-child(8) > tbody > tr:nth-child(4) > td > div > ul > li:nth-child(77) > a");
+          page.pause();
+          nikePopup.focus();
+          nikePopup.evaluate("el=> el.onmouseover");
           test.set(
               page.waitForSelector(
                       "body > div.mwe-popups-type-page > div.mwe-popups-container > a.mwe-popups-extract >p")
                   .textContent());
         });
-    System.out.println(test);
     return test.get();
-    //     this.page
-    // .waitForSelector(
-    //     "body > div.mwe-popups-type-page > div.mwe-popups-container > a.mwe-popups-extract >p")
-    // .textContent();
-    // System.out.println(nikeString);
-
-    // page.pause();
-    // Page popup =
-    //    page.waitForPopup(
-    //        () -> {
-    //          ElementHandle handle = this.page.querySelector(com.ui.test.TestUtils.NIKE_POPUP);
-    //          page.pause();
-    //          handle.hover(new ElementHandle.HoverOptions().setForce(true));
-    //        });
-    // page.pause();
-    // System.out.println(popup.content());
-
   }
 
   public void navigateToNiki() {

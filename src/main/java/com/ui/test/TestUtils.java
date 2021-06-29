@@ -10,7 +10,7 @@ public class TestUtils {
 
   public static String PAGE_MAIN_HEADER = "//*[@id=\"firstHeading\"]";
   public static String PAGE_CONTENT_BOX = "//*[@id=\"toc\"]";
-  public static String PAGE_CONTENT_BOX_LIST = ".toc > ul > li > a > span.toctext" ;
+  public static String PAGE_CONTENT_BOX_LIST = ".toc > ul > li > a > span.toctext";
   public static String METIS_PAGE_URL = "https://en.wikipedia.org/wiki/Metis_(mythology)";
   public static String METIS_PAGE_H2 = ".mw-parser-output> h2 > span.mw-headline";
   public static String NIKE_PAGE_URL = "https://en.wikipedia.org/wiki/Nike_(mythology)";

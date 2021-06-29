@@ -20,6 +20,14 @@
         ./gradlew.bat test
 ```
 
+to run a spcific test
+
+```bash
+./gradelw test --tests "WikipediaTest.validateNikeFamilyTree"
+
+```
+
+
 #### Screenshots:
 On Test failure Playwright will take screenshot of the current page and saves it to `./screenshots`
 

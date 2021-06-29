@@ -42,7 +42,7 @@ public class WikipediaTest extends BaseTest {
     }
   }
 
-   @Test
+  @Test
   public void validateNikePopup() {
     String expectedString =
         "In ancient Greek civilization, Nike was a goddess who personified victory. Her Roman equivalent was Victoria.";
